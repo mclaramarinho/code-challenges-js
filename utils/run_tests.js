@@ -3,12 +3,12 @@ export function runTests(method, tests) {
     let passedCount = 0;
     let failedCount = 0;
 
-    tests.map((test) => {
-        const params = test[0];
+    tests.map((test, i) => {
+        const params = typeof(test[0]) === "string" ? [test[0]] : test[0];
         const expected = test[1];
 
         testCount++;
-        const result = method(params);
+        const result = method(...params);
         const verdict = result === expected ? 'pass' : 'failed';
         result === expected ? passedCount++ : failedCount++;
 
