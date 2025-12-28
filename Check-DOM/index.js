@@ -1,4 +1,5 @@
 import { runTests } from "../utils/run_tests.js";
+import { CheckDOM } from "./solution.js";
 
 const tests = [
   ["<div><b><p>hello world</p></b></div>", true],
@@ -46,4 +47,4 @@ const tests = [
   ["< div>< p></p>< b><p></div>", false]
 ];
 
-runTests(tests);
+runTests(CheckDOM, tests);
